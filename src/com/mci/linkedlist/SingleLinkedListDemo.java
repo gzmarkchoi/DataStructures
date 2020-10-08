@@ -5,10 +5,10 @@ import java.util.Stack;
 public class SingleLinkedListDemo {
 
 	public static void main(String[] args) {
-		HeroNode hero1 = new HeroNode(1, "Christophe", "JC");
-		HeroNode hero2 = new HeroNode(2, "David", "DD");
-		HeroNode hero3 = new HeroNode(3, "Nicolas", "Nico");
-		HeroNode hero4 = new HeroNode(4, "Mark", "mci");
+		SingleLinkedHeroNode hero1 = new SingleLinkedHeroNode(1, "Christophe", "JC");
+		SingleLinkedHeroNode hero2 = new SingleLinkedHeroNode(2, "David", "DD");
+		SingleLinkedHeroNode hero3 = new SingleLinkedHeroNode(3, "Nicolas", "Nico");
+		SingleLinkedHeroNode hero4 = new SingleLinkedHeroNode(4, "Mark", "mci");
 
 		SingleLinkedList list = new SingleLinkedList();
 		list.add(hero1);
@@ -22,10 +22,10 @@ public class SingleLinkedListDemo {
 //		list.addAtPosition(hero2);
 //		list.addAtPosition(hero3);
 
-//		HeroNode newHeoHeroNode = new HeroNode(2, "David", "DDDD");
+//		SingleLinkedHeroNode newHeroNode = new SingleLinkedHeroNode(2, "David", "DDDD");
 //		System.out.println("The original list");
 //		list.displayList();
-//		list.update(newHeoHeroNode);
+//		list.update(newHeroNode);
 //		System.out.println("The modified list");
 //		list.displayList();
 
@@ -37,7 +37,7 @@ public class SingleLinkedListDemo {
 
 //		System.out.printf("Number of nodes: %d\n", getLength(list.getHeadNode()));
 
-//		HeroNode result = findLastIndexNode(list.getHeadNode(), 1);
+//		SingleLinkedHeroNode result = findLastIndexNode(list.getHeadNode(), 1);
 //		System.out.println(result);
 
 		// revrse the linked list
@@ -50,13 +50,13 @@ public class SingleLinkedListDemo {
 		reversePrint(list.getHeadNode());
 	}
 
-	public static void reversePrint(HeroNode head) {
+	public static void reversePrint(SingleLinkedHeroNode head) {
 		if (head.next == null) {
 			return;
 		}
 		
-		Stack<HeroNode> stack = new Stack<HeroNode>();
-		HeroNode current = head.next;
+		Stack<SingleLinkedHeroNode> stack = new Stack<SingleLinkedHeroNode>();
+		SingleLinkedHeroNode current = head.next;
 		while (current != null) {
 			stack.push(current);
 			current = current.next;
@@ -66,14 +66,14 @@ public class SingleLinkedListDemo {
 		}
 	}
 	
-	public static void reverseList(HeroNode head) {
+	public static void reverseList(SingleLinkedHeroNode head) {
 		if (head.next == null || head.next.next == null) {
 			return;
 		}
 
-		HeroNode current = head.next;
-		HeroNode currentNext = null;
-		HeroNode reverseHead = new HeroNode(0, "", "");
+		SingleLinkedHeroNode current = head.next;
+		SingleLinkedHeroNode currentNext = null;
+		SingleLinkedHeroNode reverseHead = new SingleLinkedHeroNode(0, "", "");
 
 		while (current != null) {
 			currentNext = current.next; // save the next node of the current node
@@ -85,7 +85,7 @@ public class SingleLinkedListDemo {
 	}
 
 	// get the index element in reverse order in the list
-	public static HeroNode findLastIndexNode(HeroNode head, int index) {
+	public static SingleLinkedHeroNode findLastIndexNode(SingleLinkedHeroNode head, int index) {
 		if (head.next == null) {
 			return null;
 		}
@@ -95,7 +95,7 @@ public class SingleLinkedListDemo {
 			return null;
 		}
 
-		HeroNode current = head.next;
+		SingleLinkedHeroNode current = head.next;
 		for (int i = 0; i < listSize - index; i++) {
 			current = current.next;
 		}
@@ -104,12 +104,12 @@ public class SingleLinkedListDemo {
 	}
 
 	// Number of nodes in a linked list, head node not included
-	public static int getLength(HeroNode head) {
+	public static int getLength(SingleLinkedHeroNode head) {
 		if (head.next == null) {
 			return 0;
 		}
 		int length = 0;
-		HeroNode current = head.next;
+		SingleLinkedHeroNode current = head.next;
 		while (current != null) {
 			length++;
 			current = current.next;
@@ -124,10 +124,10 @@ public class SingleLinkedListDemo {
  * Single linked list to manage Hero nodes
  */
 class SingleLinkedList {
-	private HeroNode head = new HeroNode(0, "", "");
+	private SingleLinkedHeroNode head = new SingleLinkedHeroNode(0, "", "");
 
-	public void add(HeroNode heroNodeToAdd) {
-		HeroNode tempNode = head;
+	public void add(SingleLinkedHeroNode heroNodeToAdd) {
+		SingleLinkedHeroNode tempNode = head;
 		// find the last node
 		while (true) {
 			if (tempNode.next == null) {
@@ -140,8 +140,8 @@ class SingleLinkedList {
 	}
 
 	// add a node by its number
-	public void addAtPosition(HeroNode heroNode) {
-		HeroNode temp = head;
+	public void addAtPosition(SingleLinkedHeroNode heroNode) {
+		SingleLinkedHeroNode temp = head;
 		boolean flag = false;
 
 		while (true) {
@@ -165,14 +165,14 @@ class SingleLinkedList {
 		}
 	}
 
-	public void update(HeroNode heroNodeToUpdate) {
+	public void update(SingleLinkedHeroNode heroNodeToUpdate) {
 		if (head.next == null) {
 			System.out.println("List is empty");
 			return;
 		}
 
 		// Find the hero node to update
-		HeroNode temp = head.next;
+		SingleLinkedHeroNode temp = head.next;
 		boolean flagNodeFound = false;
 
 		while (true) {
@@ -195,7 +195,7 @@ class SingleLinkedList {
 	}
 
 	public void delete(int no) {
-		HeroNode temp = head;
+		SingleLinkedHeroNode temp = head;
 		boolean flagNodeFound = false;
 
 		while (true) {
@@ -221,7 +221,7 @@ class SingleLinkedList {
 			System.out.println("List is empty");
 			return;
 		}
-		HeroNode tempNode = head.next;
+		SingleLinkedHeroNode tempNode = head.next;
 		while (true) {
 			if (tempNode == null) {
 				break;
@@ -231,18 +231,18 @@ class SingleLinkedList {
 		}
 	}
 
-	public HeroNode getHeadNode() {
+	public SingleLinkedHeroNode getHeadNode() {
 		return head;
 	}
 }
 
-class HeroNode {
+class SingleLinkedHeroNode {
 	public int no;
 	public String name;
 	public String nickname;
-	public HeroNode next;
+	public SingleLinkedHeroNode next;
 
-	public HeroNode(int no, String name, String nickname) {
+	public SingleLinkedHeroNode(int no, String name, String nickname) {
 		this.no = no;
 		this.name = name;
 		this.nickname = nickname;
@@ -250,7 +250,7 @@ class HeroNode {
 
 	@Override
 	public String toString() {
-		return "HeroNode [no=" + no + ", name=" + name + ", nickname=" + nickname + "]";
+		return "SingleLinkedHeroNode [no=" + no + ", name=" + name + ", nickname=" + nickname + "]";
 	}
 
 }
