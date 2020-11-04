@@ -22,12 +22,12 @@ public class SelectSort {
 			for (int j = i + 1; j < array.length; j++) {
 				// find the real min value
 				if (min > array[j]) {
-					min = array[j];
-					minIndex = j;
+					min = array[j]; // reset de min value
+					minIndex = j; // reset min index value
 				}
 			}
 
-			if (minIndex != i) {
+			if (minIndex != i) { // put the min value in array[i]
 				array[minIndex] = array[i];
 				array[i] = min;
 			}
